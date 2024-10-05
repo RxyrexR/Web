@@ -29,14 +29,24 @@
         }
         #sub-text {
             position: absolute;
-            top: 28%; /* Positioned closer to the big text */
+            top: 22%; /* Positioned closer to the big text */
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 21px; /* Thrice smaller font size */
+            font-size: 24px; /* Slightly larger font size */
             text-align: center;
             background: linear-gradient(to right, #1e3c72, #2a69ac); /* Dark to light blue gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shimmer 1.5s infinite alternate; /* Shimmer animation */
+        }
+
+        @keyframes shimmer {
+            0% {
+                background: linear-gradient(to right, #1e3c72, #2a69ac);
+            }
+            100% {
+                background: linear-gradient(to right, #2a69ac, #1e3c72);
+            }
         }
     </style>
 </head>
