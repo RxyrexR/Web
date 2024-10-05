@@ -13,11 +13,13 @@
             flex-direction: column;
             align-items: center; /* Center horizontally */
             height: 100vh; /* Full viewport height */
+            position: relative; /* Set relative positioning for the body */
         }
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
+            z-index: -1; /* Send particles behind everything */
         }
         #welcome-text {
             color: #ffffff;
@@ -33,6 +35,8 @@
             flex-direction: column; /* Stack buttons vertically */
             align-items: center; /* Center buttons horizontally */
             margin-top: 150px; /* Adjusted space to position buttons lower */
+            position: relative; /* Set relative positioning for the button container */
+            z-index: 1; /* Bring buttons above particles */
         }
         .button {
             padding: 15px 30px;
@@ -61,6 +65,8 @@
             padding: 20px; /* Padding inside modal */
             text-align: center; /* Center text */
             animation: slideIn 0.5s forwards; /* Animation */
+            z-index: 2; /* Bring modal above everything */
+            bottom: -300px; /* Start below the screen */
         }
         @keyframes slideIn {
             0% {
