@@ -3,135 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinosPrime</title>
+    <title>Blue Particles Background</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #000; /* Solid black background */
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full height of the viewport */
-            text-align: center; /* Center the text */
-            position: relative; /* Relative positioning for canvas */
-            overflow: hidden; /* Prevent overflow */
+            overflow: hidden;
+            background-color: #000;
         }
-
-        h1 {
-            font-size: 3rem; /* Adjust font size as needed */
-            margin-bottom: 20px; /* Space below the heading */
-            text-shadow: 0 0 10px #00ffff; /* Glow effect */
-        }
-
-        p {
-            font-size: 1.2rem; /* Adjust font size as needed */
-            margin-bottom: 40px; /* Space below the paragraph */
-        }
-
-        .button {
-            padding: 15px 30px; /* Button padding */
-            font-size: 1.2rem; /* Button text size */
-            color: white; /* Button text color */
-            background-color: #555; /* Button background color */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background-color 0.3s; /* Smooth background color transition */
-        }
-
-        .button:hover {
-            background-color: #777; /* Change background color on hover */
-        }
-
-        canvas {
-            position: absolute; /* Position canvas to fill background */
-            top: 0;
-            left: 0;
+        #particles-js {
+            position: absolute;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Allow clicks to pass through */
         }
     </style>
-    <script>
-        const particles = [];
-        const particleCount = 100; // Number of particles
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        document.body.appendChild(canvas);
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 5 + 2; // Size between 2 and 7
-                this.speedX = (Math.random() - 0.5) * 2; // Random speed
-                this.speedY = (Math.random() - 0.5) * 2; // Random speed
-                this.alpha = 1; // Start fully opaque
-                this.lifetime = Math.random() * 3 + 1; // Random lifetime between 1 and 4 seconds
-                this.rotation = Math.random() * 2 * Math.PI; // Random rotation angle
-                this.rotationSpeed = (Math.random() - 0.5) * 0.1; // Random rotation speed
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.alpha -= 1 / (this.lifetime * 60); // Fade out over its lifetime
-                this.rotation += this.rotationSpeed; // Update rotation
-            }
-
-            draw() {
-                ctx.save(); // Save the current state
-                ctx.translate(this.x, this.y); // Move to particle's position
-                ctx.rotate(this.rotation); // Apply rotation
-                ctx.fillStyle = `rgba(0, 0, 255, ${this.alpha})`; // Blue color
-                ctx.beginPath();
-                ctx.arc(0, 0, this.size, 0, Math.PI * 2); // Draw the circle
-                ctx.fill();
-                ctx.restore(); // Restore the previous state
-            }
-        }
-
-        function init() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((particle, index) => {
-                particle.update();
-                particle.draw();
-                if (particle.alpha <= 0) {
-                    particles.splice(index, 1); // Remove particle when fully faded
-                    particles.push(new Particle()); // Add new particle
-                }
-            });
-            requestAnimationFrame(animate);
-        }
-
-        window.onload = () => {
-            init();
-            animate();
-        };
-
-        window.onresize = () => {
-            canvas.width = window.innerWidth; // Adjust canvas size on resize
-            canvas.height = window.innerHeight;
-        };
-    </script>
 </head>
 <body>
-    <h1>Welcome To True Judge</h1>
-    <p>(one of the best movesets)</p>
-    <a href="https://learnmore-ten.vercel.app/" class="button">Learn More</a> <!-- Link to the second page -->
-    <a href="script_info.html" class="button">Get Script</a> <!-- Link to the second page --> 
+    <div id="particles-js"></div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#0000ff" // Blue color
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: "img/github.svg",
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0000ff", // Blue color
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
