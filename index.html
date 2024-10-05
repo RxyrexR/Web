@@ -97,6 +97,7 @@
             white-space: pre-wrap; /* Preserve whitespace */
             overflow: hidden; /* Hide overflow */
             color: #fff; /* White color for the script text */
+            margin-bottom: 20px; /* Space below the script text */
         }
 
         @keyframes slide-up {
@@ -126,6 +127,7 @@
             <div id="script-text">
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()
             </div>
+            <button class="button" onclick="closeModal()">Go Back</button> <!-- Go Back Button -->
         </div>
     </div>
 
@@ -247,6 +249,13 @@
             setTimeout(() => {
                 document.getElementById('modal').style.transform = 'translate(-50%, -50%)'; // Animate to center
             }, 10); // Small delay to trigger animation
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.transform = 'translate(-50%, 100%)'; // Animate back down
+            setTimeout(() => {
+                document.getElementById('modal').style.display = 'none'; // Hide modal after animation
+            }, 500); // Match the animation duration
         }
     </script>
 </body>
