@@ -96,6 +96,22 @@
             z-index: 3; /* Bring modal above everything */
             bottom: -300px; /* Start below the screen */
         }
+        #angel-modal {
+            display: none; /* Hidden by default */
+            margin-top: 20px; /* Space above the sections */
+            position: fixed; /* Fix the position for the angel modal */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, 0); /* Center */
+            width: 400px; /* Set a width for the modal */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 10px; /* Rounded corners */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside modal */
+            text-align: center; /* Center text */
+            animation: slideIn 0.5s forwards; /* Animation */
+            z-index: 3; /* Bring modal above everything */
+            bottom: -300px; /* Start below the screen */
+        }
     </style>
 </head>
 <body>
@@ -109,11 +125,19 @@
 
     <div id="modal">
         <div id="script-section">
-            <h2 style="color: white;" onclick="showJudgeModal()">The True Angel</h2> <!-- Clickable section -->
+            <h2 style="color: white;" onclick="showAngelModal()">The True Angel</h2> <!-- Clickable section -->
             <p>Your content for The True Angel section goes here.</p>
             <button class="button" onclick="showJudgeModal()">The True Judge</button> <!-- Button for The True Judge -->
         </div>
         <button class="button" onclick="closeModal()">Go Back</button> <!-- Go Back Button -->
+    </div>
+
+    <div id="angel-modal">
+        <div>
+            <h2>The True Angel</h2>
+            <p>W.I.P</p>
+        </div>
+        <button class="button" onclick="closeAngelModal()">Go Back</button> <!-- Go Back Button for Angel Modal -->
     </div>
 
     <div id="judge-modal">
@@ -240,15 +264,23 @@
         function showModal() {
             document.getElementById('modal').style.display = 'block'; // Show modal
             document.getElementById('modal').style.bottom = '30%'; // Animate to center
-            document.getElementById('script-section').style.display = 'block'; // Show the script section
         }
 
         function closeModal() {
-            document.getElementById('modal').style.bottom = '-300px'; // Move down
+            document.getElementById('modal').style.display = 'none'; // Hide modal
+        }
+
+        function showAngelModal() {
+            closeModal(); // Close the previous modal
             setTimeout(() => {
-                document.getElementById('modal').style.display = 'none'; // Hide modal after animation
-                document.getElementById('script-section').style.display = 'none'; // Hide script section when closing
-            }, 500); // Match the animation duration
+                document.getElementById('angel-modal').style.display = 'block'; // Show angel modal
+                document.getElementById('angel-modal').style.bottom = '30%'; // Animate to center
+                document.getElementById('angel-modal').style.transform = 'translate(-50%, -50%)'; // Center more precisely
+            }, 500); // Wait for the previous modal to close before showing the next
+        }
+
+        function closeAngelModal() {
+            document.getElementById('angel-modal').style.display = 'none'; // Hide angel modal
         }
 
         function showJudgeModal() {
@@ -256,15 +288,12 @@
             setTimeout(() => {
                 document.getElementById('judge-modal').style.display = 'block'; // Show judge modal
                 document.getElementById('judge-modal').style.bottom = '30%'; // Animate to center
-                document.getElementById('judge-modal').style.animation = 'slideIn 0.5s forwards'; // Animate from bottom to center
-            }, 500); // Wait for previous modal to close
+                document.getElementById('judge-modal').style.transform = 'translate(-50%, -50%)'; // Center more precisely
+            }, 500); // Wait for the previous modal to close before showing the next
         }
 
         function closeJudgeModal() {
-            document.getElementById('judge-modal').style.bottom = '-300px'; // Move down
-            setTimeout(() => {
-                document.getElementById('judge-modal').style.display = 'none'; // Hide judge modal after animation
-            }, 500); // Match the animation duration
+            document.getElementById('judge-modal').style.display = 'none'; // Hide judge modal
         }
     </script>
 </body>
