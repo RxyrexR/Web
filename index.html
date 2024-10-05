@@ -35,18 +35,15 @@
             font-size: 32px; /* Slightly larger font size */
             text-align: center;
             color: #1e3c72; /* Initial dark blue color */
-            animation: shimmer 1.5s infinite alternate; /* Shimmer animation */
+            animation: shimmer 3s infinite alternate; /* Slower shimmer animation */
         }
 
         @keyframes shimmer {
             0% {
-                color: #1e3c72; /* Dark blue */
-            }
-            50% {
-                color: #2a69ac; /* Light blue */
+                background-position: 0% 50%; /* Start at the left */
             }
             100% {
-                color: #1e3c72; /* Dark blue */
+                background-position: 100% 50%; /* End at the right */
             }
         }
     </style>
@@ -54,7 +51,9 @@
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To True Judge</div>
-    <div id="sub-text">(one of the best scripts)</div>
+    <div id="sub-text" style="background: linear-gradient(90deg, #1e3c72, #2a69ac); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s infinite alternate;">
+        (one of the best scripts)
+    </div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
