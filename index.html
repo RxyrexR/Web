@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MinosPrime</title>
+  <title>My Vercel Website</title>
   <style>
     body {
       /* Set the background image URL */
@@ -26,6 +26,7 @@
       
       /* Set the height of the page to cover the viewport */
       height: 100vh;
+      overflow: hidden; /* Prevent scrollbars from appearing */
     }
 
     /* Styling for text gradient */
@@ -39,17 +40,35 @@
       text-align: center;
 
       /* Add some padding at the top */
-      padding-top: 20vh;
+      position: absolute; /* Make the position absolute for animation */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Adjust position to center */
+      opacity: 0; /* Start invisible */
+      animation: fall 2s forwards; /* Apply fall animation */
     }
 
     /* Make the heading text larger */
     h1 {
       font-size: 4em;  /* You can adjust this size */
+      animation-delay: 0.5s; /* Delay for heading */
     }
 
     /* Make the paragraph text larger */
     p {
       font-size: 2em;  /* You can adjust this size */
+      animation-delay: 1s; /* Delay for paragraph */
+    }
+
+    /* Keyframes for falling animation */
+    @keyframes fall {
+      0% {
+        transform: translate(-50%, -100%); /* Start above the screen */
+        opacity: 0; /* Invisible */
+      }
+      100% {
+        transform: translate(-50%, 0); /* End at normal position */
+        opacity: 1; /* Fully visible */
+      }
     }
   </style>
 </head>
