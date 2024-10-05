@@ -80,6 +80,10 @@
             display: none; /* Hidden by default */
             margin-top: 20px; /* Space above the sections */
         }
+        #judge-modal {
+            display: none; /* Hidden by default */
+            margin-top: 20px; /* Space above the sections */
+        }
     </style>
 </head>
 <body>
@@ -95,10 +99,17 @@
         <div id="script-section">
             <h2>The True Angel</h2> <!-- First section -->
             <p>Your content for The True Angel section goes here.</p>
-            <h2>The True Judge</h2> <!-- Second section -->
-            <p>Your content for The True Judge section goes here.</p>
+            <button class="button" onclick="showJudgeModal()">The True Judge</button> <!-- Button for The True Judge -->
         </div>
         <button class="button" onclick="closeModal()">Go Back</button> <!-- Go Back Button -->
+    </div>
+
+    <div id="judge-modal">
+        <div id="judge-content">
+            <h2>The True Judge</h2>
+            <p>loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p>
+        </div>
+        <button class="button" onclick="closeJudgeModal()">Go Back</button> <!-- Go Back Button for Judge Modal -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -225,6 +236,21 @@
             setTimeout(() => {
                 document.getElementById('modal').style.display = 'none'; // Hide modal after animation
                 document.getElementById('script-section').style.display = 'none'; // Hide script section when closing
+            }, 500); // Match the animation duration
+        }
+
+        function showJudgeModal() {
+            closeModal(); // Close the previous modal
+            setTimeout(() => {
+                document.getElementById('judge-modal').style.display = 'block'; // Show judge modal
+                document.getElementById('judge-modal').style.bottom = '30%'; // Animate to center
+            }, 500); // Delay for closing animation
+        }
+
+        function closeJudgeModal() {
+            document.getElementById('judge-modal').style.bottom = '-300px'; // Move down
+            setTimeout(() => {
+                document.getElementById('judge-modal').style.display = 'none'; // Hide judge modal after animation
             }, 500); // Match the animation duration
         }
     </script>
