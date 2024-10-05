@@ -27,6 +27,10 @@
       /* Set the height of the page to cover the viewport */
       height: 100vh;
       overflow: hidden; /* Prevent scrollbars from appearing */
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      flex-direction: column; /* Stack items vertically */
     }
 
     /* Styling for text gradient */
@@ -40,9 +44,7 @@
       text-align: center;
 
       /* Add some padding at the top */
-      position: absolute; /* Make the position absolute for animation */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Adjust position to center */
+      position: relative; /* Use relative for normal positioning */
       opacity: 0; /* Start invisible */
       animation: fall 2s forwards; /* Apply fall animation */
     }
@@ -62,11 +64,11 @@
     /* Keyframes for falling animation */
     @keyframes fall {
       0% {
-        transform: translate(-50%, -100%); /* Start above the screen */
+        transform: translateY(-100%); /* Start above the screen */
         opacity: 0; /* Invisible */
       }
       100% {
-        transform: translate(-50%, 0); /* End at normal position */
+        transform: translateY(0); /* End at normal position */
         opacity: 1; /* Fully visible */
       }
     }
