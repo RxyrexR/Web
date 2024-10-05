@@ -17,21 +17,33 @@
         }
         #welcome-text {
             position: absolute;
-            top: 50%;
+            top: 20%; /* Positioning at the top */
             left: 50%;
             transform: translate(-50%, -50%);
             color: #ffffff; /* White color */
-            font-size: 48px; /* Increased font size */
+            font-size: 64px; /* Increased font size */
             text-align: center;
             text-shadow: 
                 0 0 15px rgba(0, 0, 255, 1), /* Stronger blueish glow */
                 0 0 30px rgba(0, 0, 255, 0.7);
+        }
+        #sub-text {
+            position: absolute;
+            top: 40%; /* Positioned below the main text */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 21px; /* Thrice smaller font size */
+            text-align: center;
+            background: linear-gradient(to right, #1e3c72, #2a69ac); /* Dark to light blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To True Judge</div>
+    <div id="sub-text">one of the best scripts</div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
