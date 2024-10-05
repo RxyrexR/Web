@@ -31,11 +31,6 @@
 
     /* Styling for text gradient */
     h1, p {
-      /* Text gradient from black to dark gray */
-      background: linear-gradient(90deg, black, darkgray);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
       /* Center the text */
       text-align: center;
 
@@ -44,7 +39,7 @@
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust position to center */
       opacity: 0; /* Start invisible */
-      animation: fall 2s forwards; /* Apply fall animation */
+      animation: fall 2s forwards, colorMove 5s linear infinite; /* Apply fall and color move animations */
     }
 
     /* Make the heading text larger */
@@ -70,10 +65,23 @@
         opacity: 1; /* Fully visible */
       }
     }
+
+    /* Keyframes for moving colors */
+    @keyframes colorMove {
+      0% {
+        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+        background-size: 300%; /* Increase the size for smooth movement */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      100% {
+        background-position: 100%; /* Move background position for the animation */
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>One of the best movesets for The Strongest Battlegrounds</h1>
-  <p>W.I.P</p>
+  <h1>Welcome to My Vercel Website</h1>
+  <p>This is some text that will show up on the website.</p>
 </body>
 </html>
