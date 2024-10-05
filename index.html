@@ -1,89 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Vercel Website</title>
-  <style>
-    body {
-      /* Set the background image URL */
-      background-image: url('https://preview.redd.it/98sncpcv4jo91.jpg?auto=webp&s=78706cffef40b49b83ac2c2dbc246cdae4aa2969');
-      
-      /* Make the background cover the entire screen */
-      background-size: cover;
-      
-      /* Make sure the background stays in place when scrolling */
-      background-attachment: fixed;
-      
-      /* Center the background image */
-      background-position: center;
-      
-      /* Fallback background color in case the image doesn't load */
-      background-color: #f0f0f0;
-      
-      /* Make sure there's no margin around the body */
-      margin: 0;
-      
-      /* Set the height of the page to cover the viewport */
-      height: 100vh;
-      overflow: hidden; /* Prevent scrollbars from appearing */
-      display: flex; /* Use flexbox for layout */
-      flex-direction: column; /* Stack items vertically */
-      align-items: center; /* Center items horizontally */
-    }
-
-    /* Styling for text gradient */
-    h1 {
-      /* Text gradient from black to dark gray */
-      background: linear-gradient(90deg, black, darkgray);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      /* Center the text */
-      text-align: center;
-
-      /* Add some margin to the top */
-      margin-top: 20px; /* Adjust as needed */
-      font-size: 4em;  /* You can adjust this size */
-      opacity: 0; /* Start invisible */
-      animation: fall 2s forwards; /* Apply fall animation */
-      animation-delay: 0.5s; /* Delay for heading */
-    }
-
-    /* Paragraph styling */
-    p {
-      /* Text gradient from black to dark gray */
-      background: linear-gradient(90deg, black, darkgray);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      /* Center the text */
-      text-align: center;
-
-      /* Position the paragraph normally below the heading */
-      font-size: 2em;  /* You can adjust this size */
-      margin-top: auto; /* Take remaining space */
-      margin-bottom: auto; /* Adjust spacing */
-      opacity: 0; /* Start invisible */
-      animation: fall 2s forwards; /* Apply fall animation */
-      animation-delay: 1s; /* Delay for paragraph */
-    }
-
-    /* Keyframes for falling animation */
-    @keyframes fall {
-      0% {
-        transform: translateY(-100%); /* Start above the screen */
-        opacity: 0; /* Invisible */
-      }
-      100% {
-        transform: translateY(0); /* End at normal position */
-        opacity: 1; /* Fully visible */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Welcome to Apophenia</title>
 </head>
 <body>
-  <h1>Welcome to My Vercel Website</h1>
-  <p>This is some text that will show up on the website.</p>
+    <div class="container">
+        <h1>Welcome To Apophenia</h1>
+        <p>(the most powerful moveset for tsb)</p>
+        <div class="buttons">
+            <a href="#" class="button">Learn More</a>
+            <a href="#" class="button">Get Script</a>
+            <a href="#" class="button">Join Discord</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
