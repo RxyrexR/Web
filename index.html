@@ -100,6 +100,7 @@
             border-radius: 5px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Blue glow effect */
             transition: background-color 0.3s; /* Transition for the background color */
+            display: none; /* Initially hidden */
         }
         .flash {
             animation: flash 0.3s; /* Flash effect */
@@ -251,10 +252,20 @@
 
         function showModal() {
             document.getElementById('modal').style.display = 'flex'; // Show modal
+            // Show sections after a short delay
+            setTimeout(() => {
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'block'; // Show each section
+                });
+            }, 300); // Delay for the effect
         }
 
         function closeModal() {
             document.getElementById('modal').style.display = 'none'; // Hide modal
+            // Hide sections when modal is closed
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none'; // Hide each section
+            });
         }
 
         function showScript(element) {
@@ -262,8 +273,9 @@
             alert("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source\"))()");
             setTimeout(() => {
                 element.classList.remove('flash'); // Remove flash effect after timeout
-            }, 300); // Match duration of flash effect
+            }, 300); // Duration of flash effect
         }
     </script>
 </body>
 </html>
+
