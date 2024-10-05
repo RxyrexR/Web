@@ -8,55 +8,55 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #000; 
+            background-color: #000;
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; 
-            text-align: center; 
+            height: 100vh;
+            text-align: center;
             position: relative;
             overflow: hidden;
-       }     
+        }
 
         #particles-js {
-            position: absolute; 
+            position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0; 
+            z-index: 0;
         }
 
         h1 {
-            font-size: 3rem; 
-            margin-bottom: 20px; 
-            text-shadow: 0 0 10px #00ffff; 
-            z-index: 1; 
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffff;
+            z-index: 1;
         }
 
         p {
-            font-size: 1.2rem; 
-            margin-bottom: 40px; 
-            z-index: 1; 
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            z-index: 1;
         }
 
         .button {
             padding: 15px 30px;
-            font-size: 1.2rem; 
-            color: white; 
-            background-color: #555; 
-            border: none; 
+            font-size: 1.2rem;
+            color: white;
+            background-color: #555;
+            border: none;
             border-radius: 5px;
-            cursor: pointer; 
-            transition: background-color 0.3s; 
-            z-index: 1; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1;
         }
 
         .button:hover {
-            background-color: #777; 
+            background-color: #777;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -71,7 +71,7 @@
                     }
                 },
                 color: {
-                    value: "#0000ff" 
+                    value: "#0000ff"
                 },
                 shape: {
                     type: "circle",
@@ -159,7 +159,7 @@
                     },
                     repulse: {
                         distance: 200,
-                        duration: 0.4
+                        duration: 1
                     },
                     push: {
                         particles_nb: 4
@@ -172,30 +172,12 @@
             retina_detect: true
         });
     </script>
-    
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script type="module">
-        import { Analytics } from "@vercel/analytics/react";
-
-        const App = () => {
-            return (
-                <>
-                    <Analytics />
-                </>
-            );
-        };
-
-        const rootElement = document.createElement("div");
-        document.body.appendChild(rootElement);
-        ReactDOM.render(<App />, rootElement);
-    </script>
 </head>
 <body>
-    <div id="particles-js"></div> 
+    <div id="particles-js"></div>
     <h1>Welcome To True Judge</h1>
     <p>(one of the best movesets)</p>
-    <a href="https://learnmore-ten.vercel.app/" class="button">Learn More</a> 
+    <a href="https://learnmore-ten.vercel.app/" class="button">Learn More</a>
     <a href="script_info.html" class="button">Get Script</a> 
 </body>
 </html>
