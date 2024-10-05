@@ -38,8 +38,10 @@
       position: absolute; /* Make the position absolute for animation */
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust position to center */
-      opacity: 0; /* Start invisible */
-      animation: fall 2s forwards, colorMove 5s linear infinite; /* Apply fall and color move animations */
+      
+      /* Animation for text movement */
+      animation: colorMove 5s linear infinite; /* Only color movement */
+      opacity: 1; /* Always visible */
     }
 
     /* Make the heading text larger */
@@ -54,18 +56,6 @@
       animation-delay: 1s; /* Delay for paragraph */
     }
 
-    /* Keyframes for falling animation */
-    @keyframes fall {
-      0% {
-        transform: translate(-50%, -100%); /* Start above the screen */
-        opacity: 0; /* Invisible */
-      }
-      100% {
-        transform: translate(-50%, 0); /* End at normal position */
-        opacity: 1; /* Fully visible */
-      }
-    }
-
     /* Keyframes for moving colors */
     @keyframes colorMove {
       0% {
@@ -73,9 +63,13 @@
         background-size: 300%; /* Increase the size for smooth movement */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        transform: translate(-50%, -100%); /* Start above the screen */
+      }
+      50% {
+        transform: translate(-50%, 0); /* End at normal position */
       }
       100% {
-        background-position: 100%; /* Move background position for the animation */
+        transform: translate(-50%, -100%); /* Move back up to start position */
       }
     }
   </style>
