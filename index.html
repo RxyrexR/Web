@@ -8,7 +8,6 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #000; /* Solid black background */
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
@@ -17,6 +16,22 @@
             align-items: center;
             height: 100vh; /* Full height of the viewport */
             text-align: center; /* Center the text */
+            position: relative; /* Needed for positioning video */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        /* Fullscreen video styling */
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* Place behind other content */
+            transform: translate(-50%, -50%); /* Center the video */
+            object-fit: cover; /* Cover the entire viewport */
         }
 
         h1 {
@@ -68,6 +83,12 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 </head>
 <body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay loop muted>
+        <source src="https://www.youtube.com/watch?v=WBGPlUlPjmk&list=PLDTG-mhC5UzM_m1pePuMv9mISG_2HWaNi&index=2.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+        Your browser does not support the video tag.
+    </video>
+    
     <h1>Welcome To True Judge</h1>
     <p>(one of the best movesets)</p>
     <a href="https://learnmore-ten.vercel.app/" class="button">Learn More</a> <!-- Link to the second page -->
