@@ -106,7 +106,7 @@
     <div id="modal">
         <div id="script-section">
             <button class="button" onclick="showJudgeModal()">The True Judge</button> <!-- Button for The True Judge -->
-            <button class="button" onclick="showJudgeModal()">The True Angel</button>
+            <button class="button" onclick="showAngelModal()">The True Angel</button> <!-- Button for The True Angel -->
         </div>
         <button class="button" onclick="closeModal()">Go Back</button> <!-- Go Back Button -->
     </div>
@@ -117,6 +117,14 @@
             <p>loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p>
         </div>
         <button class="button" onclick="closeJudgeModal()">Go Back</button> <!-- Go Back Button for Judge Modal -->
+    </div>
+
+    <div id="angel-modal">
+        <div>
+            <h2>The True Angel</h2>
+            <p>W.I.P</p> <!-- W.I.P message -->
+        </div>
+        <button class="button" onclick="closeAngelModal()">Go Back</button> <!-- Go Back Button for Angel Modal -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -252,6 +260,19 @@
 
         function closeJudgeModal() {
             document.getElementById('judge-modal').style.display = 'none'; // Hide judge modal
+        }
+
+        function showAngelModal() {
+            closeModal(); // Close the previous modal
+            setTimeout(() => {
+                document.getElementById('angel-modal').style.display = 'block'; // Show angel modal
+                document.getElementById('angel-modal').style.bottom = '30%'; // Animate to center
+                document.getElementById('angel-modal').style.transform = 'translate(-50%, -50%)'; // Center more precisely
+            }, 500); // Wait for the previous modal to close before showing the next
+        }
+
+        function closeAngelModal() {
+            document.getElementById('angel-modal').style.display = 'none'; // Hide angel modal
         }
     </script>
 </body>
