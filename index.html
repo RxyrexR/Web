@@ -99,6 +99,20 @@
             color: #fff; /* White color for the script text */
             margin-bottom: 20px; /* Space below the script text */
         }
+        
+        /* New Styles for The True Judge Section */
+        #true-judge {
+            position: absolute;
+            top: 10%; /* Adjust as needed */
+            left: 5%; /* Adjust as needed */
+            color: #ffffff;
+            font-size: 36px; /* Adjust font size as needed */
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 10px; /* Padding for the text */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Blue glow effect */
+        }
 
         @keyframes slide-up {
             0% {
@@ -115,7 +129,10 @@
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
-    
+
+    <!-- The True Judge Section -->
+    <div id="true-judge">The True Judge</div>
+
     <div id="button-container">
         <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">What?</button>
         <button class="button" onclick="showModal()">Scripts</button>
