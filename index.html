@@ -25,13 +25,11 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             z-index: -1; /* Place behind other content */
             transform: translate(-50%, -50%); /* Center the video */
-            object-fit: cover; /* Cover the entire viewport */
+            pointer-events: none; /* Prevent mouse interactions */
         }
 
         h1 {
@@ -83,11 +81,13 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 </head>
 <body>
-    <!-- Background Video -->
-    <video class="background-video" autoplay loop muted>
-        <source src="https://www.youtube.com/watch?v=WBGPlUlPjmk&list=PLDTG-mhC5UzM_m1pePuMv9mISG_2HWaNi&index=2 type="video/mp4"> <!-- Replace with your video URL -->
-        Your browser does not support the video tag.
-    </video>
+    <!-- Background YouTube Video -->
+    <iframe class="background-video" 
+        src="https://www.youtube.com/embed/WBGPlUlPjmk?autoplay=1&loop=1&playlist=WBGPlUlPjmk&mute=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+    </iframe>
     
     <h1>Welcome To True Judge</h1>
     <p>(one of the best movesets)</p>
