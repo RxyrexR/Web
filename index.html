@@ -30,43 +30,11 @@
                 0 0 30px rgba(0, 0, 255, 0.7);
             margin-top: 20px; /* Space at the top */
         }
-        #modal, #judge-modal, #angel-modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fix the position for the modals */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, 0); /* Center */
-            width: 400px; /* Set a width for the modal */
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-            border-radius: 10px; /* Rounded corners */
-            color: white; /* Text color */
-            padding: 20px; /* Padding inside modal */
-            text-align: center; /* Center text */
-            animation: slideIn 0.5s forwards; /* Animation */
-            z-index: 2; /* Bring modal above everything */
-            bottom: -300px; /* Start below the screen */
-        }
-        @keyframes slideIn {
-            0% {
-                bottom: -300px; /* Start below the screen */
-            }
-            100% {
-                bottom: 30%; /* Position in the center */
-            }
-        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
-
-    <div id="modal">
-        <div id="script-section">
-            <h2>The True Judge</h2>
-            <p style="color: white; margin-top: 10px; text-align: center;">loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p>
-            <h2>The True Angel</h2>
-            <p style="color: white; margin-top: 10px; text-align: center;">W.I.P</p>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
@@ -140,9 +108,6 @@
                 }
             }
         });
-
-        // Show the modal directly on load
-        document.getElementById('modal').style.display = 'block';
     </script>
 </body>
 </html>
