@@ -70,24 +70,31 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 5 + 2;
-                this.speedX = (Math.random() - 0.5) * 2;
-                this.speedY = (Math.random() - 0.5) * 2;
-                this.alpha = 1;
+                this.size = Math.random() * 5 + 2; // Size between 2 and 7
+                this.speedX = (Math.random() - 0.5) * 2; // Random speed
+                this.speedY = (Math.random() - 0.5) * 2; // Random speed
+                this.alpha = 1; // Start fully opaque
                 this.lifetime = Math.random() * 3 + 1; // Random lifetime between 1 and 4 seconds
+                this.rotation = Math.random() * 2 * Math.PI; // Random rotation angle
+                this.rotationSpeed = (Math.random() - 0.5) * 0.1; // Random rotation speed
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.alpha -= 1 / (this.lifetime * 60); // Fade out over its lifetime
+                this.rotation += this.rotationSpeed; // Update rotation
             }
 
             draw() {
+                ctx.save(); // Save the current state
+                ctx.translate(this.x, this.y); // Move to particle's position
+                ctx.rotate(this.rotation); // Apply rotation
                 ctx.fillStyle = `rgba(0, 0, 255, ${this.alpha})`; // Blue color
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.arc(0, 0, this.size, 0, Math.PI * 2); // Draw the circle
                 ctx.fill();
+                ctx.restore(); // Restore the previous state
             }
         }
 
@@ -113,6 +120,11 @@
         window.onload = () => {
             init();
             animate();
+        };
+
+        window.onresize = () => {
+            canvas.width = window.innerWidth; // Adjust canvas size on resize
+            canvas.height = window.innerHeight;
         };
     </script>
 </head>
