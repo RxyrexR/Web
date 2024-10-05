@@ -27,254 +27,51 @@
                 0 0 15px rgba(0, 0, 255, 1),
                 0 0 30px rgba(0, 0, 255, 0.7);
         }
-        #sub-text {
+        .section {
+            display: none; /* Initially hidden */
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 32px;
-            text-align: center;
-            color: #1e3c72;
-            animation: shimmer 3s infinite alternate;
-            background: linear-gradient(90deg, #1e3c72, #2a69ac);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        @keyframes shimmer {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-        #button-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .button {
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            background-color: rgba(0, 0, 139, 0.6);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: rgba(0, 0, 139, 0.8);
-        }
-        /* Modal Styles */
-        #modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 50%; /* Centered vertically */
-            left: 50%; /* Centered horizontally */
-            transform: translate(-50%, -50%); /* Move back to center */
-            width: 400px; /* Fixed width for the modal */
-            height: 300px; /* Fixed height for the modal */
+            top: 40%; /* Position from top */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center */
+            width: 300px; /* Set a width for the sections */
             background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
             border-radius: 10px; /* Rounded corners */
-            padding: 20px; /* Padding inside modal */
-            box-shadow: 0 0 20px rgba(0, 0, 255, 0.5); /* Blue glow effect */
-            display: flex; /* Enable flexbox */
-            flex-direction: column; /* Arrange children in a column */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-        }
-        .section {
-            color: #ffffff;
-            font-size: 24px; /* Adjust font size */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside sections */
             text-align: center; /* Center text */
-            margin: 10px 0; /* Margin for spacing */
-            padding: 10px; /* Padding for the text */
-            cursor: pointer; /* Cursor change for clickable sections */
-            width: 80%; /* Make sections fit within the modal */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            border-radius: 5px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Blue glow effect */
-            transition: background-color 0.3s; /* Transition for the background color */
-            display: none; /* Initially hidden */
-        }
-        .flash {
-            animation: flash 0.3s; /* Flash effect */
+            animation: flash 0.5s; /* Flash effect */
         }
         @keyframes flash {
-            0% {
-                background-color: rgba(0, 0, 139, 0.8);
-            }
-            50% {
-                background-color: rgba(255, 215, 0, 0.8); /* Gold color */
-            }
-            100% {
-                background-color: rgba(0, 0, 139, 0.8);
-            }
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        #true-judge {
+            margin-bottom: 20px; /* Space between sections */
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
+    
+    <div id="true-angel" class="section">The True Angel</div>
+    <div id="true-judge" class="section">The True Judge</div>
 
-    <div id="button-container">
-        <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">What?</button>
-        <button class="button" onclick="showModal()">Scripts</button>
-    </div>
-
-    <div id="modal">
-        <div class="section" id="true-angel">The True Angel</div>
-        <div class="section" id="true-judge" onclick="showScript(this)">The True Judge</div>
-        <button class="button" onclick="closeModal()">Go Back</button>
-    </div>
-
-    <div id="script-text" style="display: none;">
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 100,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#0000ff" // Blue color
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000"
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    },
-                    image: {
-                        src: "img/github.svg",
-                        width: 100,
-                        height: 100
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 5,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#0000ff",
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
-
-        function showModal() {
-            document.getElementById('modal').style.display = 'flex'; // Show modal
-            // Show sections after a short delay
-            setTimeout(() => {
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.display = 'block'; // Show each section
-                });
-            }, 300); // Delay for the effect
+        // Show sections after a delay to simulate button click
+        function showSections() {
+            document.getElementById('true-angel').style.display = 'block';
+            document.getElementById('true-judge').style.display = 'block';
+            // Add flash effect to sections
+            document.getElementById('true-angel').style.animation = 'flash 0.5s';
+            document.getElementById('true-judge').style.animation = 'flash 0.5s';
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none'; // Hide modal
-            // Hide sections when modal is closed
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.display = 'none'; // Hide each section
-            });
-        }
-
-        function showScript(element) {
-            element.classList.add('flash'); // Add flash effect
-            setTimeout(() => {
-                element.classList.remove('flash'); // Remove flash effect after timeout
-            }, 300); // Duration of flash effect
-            alert("Script: " + document.getElementById('script-text').innerText);
-        }
+        // Simulating button click to show sections
+        window.onload = function() {
+            setTimeout(showSections, 1000); // Change 1000 to the desired delay (in milliseconds)
+        };
     </script>
 </body>
 </html>
