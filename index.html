@@ -3,62 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinosPrime</title>
+    <title>Blue Particles Background</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            position: relative;
             overflow: hidden;
+            background-color: #000;
         }
-
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
         }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px #00ffff;
-            z-index: 1;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            z-index: 1;
-        }
-
-        .button {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            color: white;
-            background-color: #555;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            z-index: 1;
-        }
-
-        .button:hover {
-            background-color: #777;
+        #welcome-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(0, 0, 255, 0.8); /* Blueish color */
+            font-size: 36px; /* Adjust font size as needed */
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.8); /* Glow effect */
         }
     </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="welcome-text">Welcome To True Judge</div>
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
@@ -71,7 +43,7 @@
                     }
                 },
                 color: {
-                    value: "#0000ff"
+                    value: "#0000ff" // Blue color
                 },
                 shape: {
                     type: "circle",
@@ -111,7 +83,7 @@
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#0000ff",
+                    color: "#0000ff", // Blue color
                     opacity: 0.4,
                     width: 1
                 },
@@ -159,7 +131,7 @@
                     },
                     repulse: {
                         distance: 200,
-                        duration: 1
+                        duration: 0.4
                     },
                     push: {
                         particles_nb: 4
@@ -172,12 +144,5 @@
             retina_detect: true
         });
     </script>
-</head>
-<body>
-    <div id="particles-js"></div>
-    <h1>Welcome To True Judge</h1>
-    <p>(one of the best movesets)</p>
-    <a href="https://learnmore-ten.vercel.app/" class="button">Learn More</a>
-    <a href="script_info.html" class="button">Get Script</a> 
 </body>
 </html>
