@@ -31,6 +31,11 @@
 
     /* Styling for text gradient */
     h1, p {
+      /* Text gradient from black to dark gray */
+      background: linear-gradient(90deg, black, darkgray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
       /* Center the text */
       text-align: center;
 
@@ -38,15 +43,8 @@
       position: absolute; /* Make the position absolute for animation */
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust position to center */
-      
-      /* Always visible */
-      opacity: 1; 
-      animation: fall 5s linear infinite; /* Apply falling animation */
-      font-weight: bold; /* Make the text bold */
-      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 300%; /* Increase the size for smooth movement */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      opacity: 0; /* Start invisible */
+      animation: fall 2s forwards; /* Apply fall animation */
     }
 
     /* Make the heading text larger */
@@ -65,12 +63,11 @@
     @keyframes fall {
       0% {
         transform: translate(-50%, -100%); /* Start above the screen */
-      }
-      50% {
-        transform: translate(-50%, 0); /* End at normal position */
+        opacity: 0; /* Invisible */
       }
       100% {
-        transform: translate(-50%, -100%); /* Move back up to start position */
+        transform: translate(-50%, 0); /* End at normal position */
+        opacity: 1; /* Fully visible */
       }
     }
   </style>
