@@ -83,9 +83,18 @@
         #judge-modal {
             display: none; /* Hidden by default */
             margin-top: 20px; /* Space above the sections */
-        }
-        #judge-content {
-            color: white; /* White text for the judge modal */
+            position: fixed; /* Fix the position for the judge modal */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, 0); /* Center */
+            width: 400px; /* Set a width for the modal */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 10px; /* Rounded corners */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside modal */
+            text-align: center; /* Center text */
+            animation: slideIn 0.5s forwards; /* Animation */
+            z-index: 3; /* Bring modal above everything */
+            bottom: -300px; /* Start below the screen */
         }
     </style>
 </head>
@@ -100,7 +109,7 @@
 
     <div id="modal">
         <div id="script-section">
-            <h2>The True Angel</h2> <!-- First section -->
+            <h2 style="color: white;" onclick="showJudgeModal()">The True Angel</h2> <!-- Clickable section -->
             <p>Your content for The True Angel section goes here.</p>
             <button class="button" onclick="showJudgeModal()">The True Judge</button> <!-- Button for The True Judge -->
         </div>
@@ -108,7 +117,7 @@
     </div>
 
     <div id="judge-modal">
-        <div id="judge-content">
+        <div>
             <h2>The True Judge</h2>
             <p>loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p>
         </div>
@@ -247,9 +256,8 @@
             setTimeout(() => {
                 document.getElementById('judge-modal').style.display = 'block'; // Show judge modal
                 document.getElementById('judge-modal').style.bottom = '30%'; // Animate to center
-                document.getElementById('judge-content').style.color = 'white'; // Set text color to white
-            }, 500); // Delay for closing animation
-            document.getElementById('judge-modal').style.animation = 'slideIn 0.5s forwards'; // Animation
+                document.getElementById('judge-modal').style.animation = 'slideIn 0.5s forwards'; // Animate from bottom to center
+            }, 500); // Wait for previous modal to close
         }
 
         function closeJudgeModal() {
