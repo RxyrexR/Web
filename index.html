@@ -27,51 +27,60 @@
                 0 0 15px rgba(0, 0, 255, 1),
                 0 0 30px rgba(0, 0, 255, 0.7);
         }
-        .section {
-            display: none; /* Initially hidden */
-            position: absolute;
-            top: 40%; /* Position from top */
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: rgba(0, 0, 139, 0.6);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px auto; /* Center button */
+            display: block; /* Display as block for centering */
+        }
+        .button:hover {
+            background-color: rgba(0, 0, 139, 0.8);
+        }
+        #modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: -300px; /* Start below the screen */
             left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center */
-            width: 300px; /* Set a width for the sections */
+            transform: translate(-50%, 0); /* Center */
+            width: 400px; /* Set a width for the modal */
             background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
             border-radius: 10px; /* Rounded corners */
             color: white; /* Text color */
-            padding: 20px; /* Padding inside sections */
+            padding: 20px; /* Padding inside modal */
             text-align: center; /* Center text */
-            animation: flash 0.5s; /* Flash effect */
+            animation: slideIn 0.5s forwards; /* Animation for modal */
         }
-        @keyframes flash {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        #true-judge {
-            margin-bottom: 20px; /* Space between sections */
+        @keyframes slideIn {
+            from { bottom: -300px; }
+            to { bottom: 50%; } /* Change to desired final position */
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
-    
-    <div id="true-angel" class="section">The True Angel</div>
-    <div id="true-judge" class="section">The True Judge</div>
+
+    <button class="button" onclick="window.location.href='https://learnmore-ten.vercel.app/'">What?</button>
+    <button class="button" onclick="showModal()">Scripts</button>
+
+    <div id="modal">
+        <div id="true-judge">The True Judge</div>
+    </div>
 
     <script>
-        // Show sections after a delay to simulate button click
-        function showSections() {
-            document.getElementById('true-angel').style.display = 'block';
-            document.getElementById('true-judge').style.display = 'block';
-            // Add flash effect to sections
-            document.getElementById('true-angel').style.animation = 'flash 0.5s';
-            document.getElementById('true-judge').style.animation = 'flash 0.5s';
+        // Function to show modal with animation
+        function showModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block'; // Show the modal
+            modal.style.animation = 'slideIn 0.5s forwards'; // Play animation
         }
-
-        // Simulating button click to show sections
-        window.onload = function() {
-            setTimeout(showSections, 1000); // Change 1000 to the desired delay (in milliseconds)
-        };
     </script>
 </body>
 </html>
+
