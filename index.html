@@ -27,9 +27,9 @@
       /* Set the height of the page to cover the viewport */
       height: 100vh;
       overflow: hidden; /* Prevent scrollbars from appearing */
-      display: flex; /* Use flexbox for centering */
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
+      display: flex; /* Use flexbox for layout */
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
     }
 
     /* Styling for text gradient */
@@ -42,7 +42,8 @@
       /* Center the text */
       text-align: center;
 
-      /* Add some padding at the top */
+      /* Add some margin to the top */
+      margin-top: 20px; /* Adjust as needed */
       font-size: 4em;  /* You can adjust this size */
       opacity: 0; /* Start invisible */
       animation: fall 2s forwards; /* Apply fall animation */
@@ -59,12 +60,10 @@
       /* Center the text */
       text-align: center;
 
-      /* Position the paragraph absolutely in the center */
-      position: absolute; /* Make the position absolute */
-      left: 50%; /* Center horizontally */
-      top: 50%; /* Center vertically */
-      transform: translate(-50%, -50%); /* Adjust position to center */
+      /* Position the paragraph normally below the heading */
       font-size: 2em;  /* You can adjust this size */
+      margin-top: auto; /* Take remaining space */
+      margin-bottom: auto; /* Adjust spacing */
       opacity: 0; /* Start invisible */
       animation: fall 2s forwards; /* Apply fall animation */
       animation-delay: 1s; /* Delay for paragraph */
@@ -73,11 +72,11 @@
     /* Keyframes for falling animation */
     @keyframes fall {
       0% {
-        transform: translate(-50%, -150%); /* Start above the screen */
+        transform: translateY(-100%); /* Start above the screen */
         opacity: 0; /* Invisible */
       }
       100% {
-        transform: translate(-50%, -50%); /* End at normal position */
+        transform: translateY(0); /* End at normal position */
         opacity: 1; /* Fully visible */
       }
     }
