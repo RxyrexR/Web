@@ -52,7 +52,6 @@
         #modal {
             display: none; /* Hidden by default */
             position: fixed;
-            bottom: -300px; /* Start below the screen */
             left: 50%; /* Center horizontally */
             transform: translate(-50%, 0); /* Center */
             width: 400px; /* Set a width for the modal */
@@ -210,15 +209,13 @@
         });
 
         function showModal() {
-            document.getElementById('modal').style.display = 'flex'; // Show modal
-            setTimeout(() => {
-                document.getElementById('modal').style.transform = 'translate(-50%, 20%)'; // Animate to center
-            }, 10); // Small delay to trigger animation
+            document.getElementById('modal').style.display = 'block'; // Show modal
+            document.getElementById('modal').style.bottom = '30%'; // Animate to center
             document.getElementById('script-section').style.display = 'block'; // Show the script section
         }
 
         function closeModal() {
-            document.getElementById('modal').style.transform = 'translate(-50%, 100%)'; // Animate back down
+            document.getElementById('modal').style.bottom = '-300px'; // Move down
             setTimeout(() => {
                 document.getElementById('modal').style.display = 'none'; // Hide modal after animation
                 document.getElementById('script-section').style.display = 'none'; // Hide script section when closing
