@@ -30,11 +30,10 @@
       display: flex; /* Use flexbox for centering */
       justify-content: center; /* Center horizontally */
       align-items: center; /* Center vertically */
-      flex-direction: column; /* Stack items vertically */
     }
 
     /* Styling for text gradient */
-    h1, p {
+    h1 {
       /* Text gradient from black to dark gray */
       background: linear-gradient(90deg, black, darkgray);
       -webkit-background-clip: text;
@@ -44,31 +43,41 @@
       text-align: center;
 
       /* Add some padding at the top */
-      position: relative; /* Use relative for normal positioning */
+      font-size: 4em;  /* You can adjust this size */
       opacity: 0; /* Start invisible */
       animation: fall 2s forwards; /* Apply fall animation */
-    }
-
-    /* Make the heading text larger */
-    h1 {
-      font-size: 4em;  /* You can adjust this size */
       animation-delay: 0.5s; /* Delay for heading */
     }
 
-    /* Make the paragraph text larger */
+    /* Paragraph styling */
     p {
+      /* Text gradient from black to dark gray */
+      background: linear-gradient(90deg, black, darkgray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      /* Center the text */
+      text-align: center;
+
+      /* Position the paragraph absolutely in the center */
+      position: absolute; /* Make the position absolute */
+      left: 50%; /* Center horizontally */
+      top: 50%; /* Center vertically */
+      transform: translate(-50%, -50%); /* Adjust position to center */
       font-size: 2em;  /* You can adjust this size */
+      opacity: 0; /* Start invisible */
+      animation: fall 2s forwards; /* Apply fall animation */
       animation-delay: 1s; /* Delay for paragraph */
     }
 
     /* Keyframes for falling animation */
     @keyframes fall {
       0% {
-        transform: translateY(-100%); /* Start above the screen */
+        transform: translate(-50%, -150%); /* Start above the screen */
         opacity: 0; /* Invisible */
       }
       100% {
-        transform: translateY(0); /* End at normal position */
+        transform: translate(-50%, -50%); /* End at normal position */
         opacity: 1; /* Fully visible */
       }
     }
