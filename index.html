@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINOS PRIME</title>
+    <title>Blue Particles Background</title>
     <style>
         body {
             margin: 0;
@@ -74,19 +74,20 @@
         #modal {
             display: none; /* Hidden by default */
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 100%; /* Start from the bottom */
+            left: 50%;
+            transform: translate(-50%, -100%); /* Off-screen */
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
             justify-content: center;
             align-items: center;
+            animation: slide-up 0.5s forwards; /* Slide-up animation */
         }
         #modal-content {
             background-color: rgba(0, 0, 0, 0.6); /* Black with 0.6 transparency */
             padding: 40px; /* Increased padding */
             border-radius: 10px;
-            animation: slide-up 0.5s; /* Slide-up animation */
             width: 600px; /* Fixed width to fit the script */
             max-width: 80%; /* Responsive max width */
             text-align: center;
@@ -97,24 +98,34 @@
             overflow: hidden; /* Hide overflow */
             color: #fff; /* White color for the script text */
         }
+
+        @keyframes slide-up {
+            0% {
+                top: 100%; /* Start from the bottom */
+                opacity: 0; /* Invisible at start */
+            }
+            100% {
+                top: 50%; /* Move to center */
+                opacity: 1; /* Fully visible at end */
+            }
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To True Judge</div>
     <div id="sub-text">(one of the best scripts)</div>
-
+    
     <div id="button-container">
         <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">What?</button>
-        <button class="button" onclick="openModal()">Script</button>
+        <button class="button" onclick="showModal()">Script</button>
     </div>
 
-    <!-- Modal -->
-    <div id="modal" onclick="closeModal()">
-        <div id="modal-content" onclick="event.stopPropagation();">
-            <h3>Script:</h3>
-            <div id="script-text">loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</div>
-            <button class="button" onclick="closeModal()" style="margin-top: 10px;">Close</button>
+    <div id="modal">
+        <div id="modal-content">
+            <div id="script-text">
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()
+            </div>
         </div>
     </div>
 
@@ -158,7 +169,7 @@
                     }
                 },
                 size: {
-                    value: 3,
+                    value: 5,
                     random: true,
                     anim: {
                         enable: false,
@@ -170,7 +181,7 @@
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#0000ff", // Blue color
+                    color: "#0000ff",
                     opacity: 0.4,
                     width: 1
                 },
@@ -231,12 +242,8 @@
             retina_detect: true
         });
 
-        function openModal() {
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+        function showModal() {
+            document.getElementById('modal').style.display = 'flex'; // Show modal
         }
     </script>
 </body>
