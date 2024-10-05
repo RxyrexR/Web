@@ -32,7 +32,7 @@
             display: flex;
             flex-direction: column; /* Stack buttons vertically */
             align-items: center; /* Center buttons horizontally */
-            margin-top: 100px; /* Space between text and buttons */
+            margin-top: 150px; /* Adjusted space to position buttons lower */
         }
         .button {
             padding: 15px 30px;
@@ -68,7 +68,7 @@
                 bottom: -300px; /* Start below the screen */
             }
             100% {
-                bottom: 20%; /* Position in the center */
+                bottom: 30%; /* Position in the center */
             }
         }
         #script-section {
@@ -205,4 +205,25 @@
                         particles_nb: 2
                     }
                 }
-    
+            },
+            retina_detect: true
+        });
+
+        function showModal() {
+            document.getElementById('modal').style.display = 'flex'; // Show modal
+            setTimeout(() => {
+                document.getElementById('modal').style.transform = 'translate(-50%, 20%)'; // Animate to center
+            }, 10); // Small delay to trigger animation
+            document.getElementById('script-section').style.display = 'block'; // Show the script section
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.transform = 'translate(-50%, 100%)'; // Animate back down
+            setTimeout(() => {
+                document.getElementById('modal').style.display = 'none'; // Hide modal after animation
+                document.getElementById('script-section').style.display = 'none'; // Hide script section when closing
+            }, 500); // Match the animation duration
+        }
+    </script>
+</body>
+</html>
