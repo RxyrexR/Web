@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINOS PRIME</title>
+    <title>Blue Particles Background</title>
     <style>
         body {
             margin: 0;
@@ -36,8 +36,10 @@
             text-align: center;
             color: #1e3c72; /* Initial dark blue color */
             animation: shimmer 3s infinite alternate; /* Slower shimmer animation */
+            background: linear-gradient(90deg, #1e3c72, #2a69ac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
         @keyframes shimmer {
             0% {
                 background-position: 0% 50%; /* Start at the left */
@@ -46,15 +48,82 @@
                 background-position: 100% 50%; /* End at the right */
             }
         }
+        #button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between buttons */
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        /* Modal Styles */
+        #modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+        #modal-content {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            animation: slide-up 0.5s; /* Slide-up animation */
+            width: 300px; /* Fixed width */
+            text-align: center;
+        }
+        @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        #script-text {
+            font-family: monospace; /* Monospace font for code */
+            white-space: pre-wrap; /* Preserve whitespace */
+            overflow: auto; /* Scroll if text overflows */
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To True Judge</div>
-    <div id="sub-text" style="background: linear-gradient(90deg, #1e3c72, #2a69ac); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s infinite alternate;">
-        (one of the best scripts)
+    <div id="sub-text">(one of the best scripts)</div>
+
+    <div id="button-container">
+        <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">Learn More</button>
+        <button class="button" onclick="openModal()">Get Script</button>
     </div>
-    
+
+    <!-- Modal -->
+    <div id="modal" onclick="closeModal()">
+        <div id="modal-content" onclick="event.stopPropagation();">
+            <h3>Script:</h3>
+            <div id="script-text">loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</div>
+            <button class="button" onclick="closeModal()" style="margin-top: 10px;">Close</button>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
@@ -167,6 +236,14 @@
             },
             retina_detect: true
         });
+
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
