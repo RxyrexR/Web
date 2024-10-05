@@ -39,9 +39,14 @@
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust position to center */
       
-      /* Animation for text movement */
-      animation: colorMove 5s linear infinite; /* Only color movement */
-      opacity: 1; /* Always visible */
+      /* Always visible */
+      opacity: 1; 
+      animation: fall 5s linear infinite; /* Apply falling animation */
+      font-weight: bold; /* Make the text bold */
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 300%; /* Increase the size for smooth movement */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Make the heading text larger */
@@ -56,13 +61,9 @@
       animation-delay: 1s; /* Delay for paragraph */
     }
 
-    /* Keyframes for moving colors */
-    @keyframes colorMove {
+    /* Keyframes for falling animation */
+    @keyframes fall {
       0% {
-        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-        background-size: 300%; /* Increase the size for smooth movement */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         transform: translate(-50%, -100%); /* Start above the screen */
       }
       50% {
