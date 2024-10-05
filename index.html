@@ -92,6 +92,21 @@
             z-index: 3; /* Bring modal above everything */
             bottom: -300px; /* Start below the screen */
         }
+        #angel-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fix the position for the modals */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, 0); /* Center */
+            width: 400px; /* Set a width for the modal */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 10px; /* Rounded corners */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside modal */
+            text-align: center; /* Center text */
+            animation: slideIn 0.5s forwards; /* Animation */
+            z-index: 3; /* Bring modal above everything */
+            bottom: -300px; /* Start below the screen */
+        }
     </style>
 </head>
 <body>
@@ -122,7 +137,7 @@
     <div id="angel-modal">
         <div>
             <h2>The True Angel</h2>
-            <p>W.I.P</p> <!-- W.I.P message -->
+            <p style="color: white; margin-top: 50px; text-align: right;">W.I.P</p> <!-- Adjusted W.I.P positioning and color -->
         </div>
         <button class="button" onclick="closeAngelModal()">Go Back</button> <!-- Go Back Button for Angel Modal -->
     </div>
@@ -241,12 +256,13 @@
         });
 
         function showModal() {
-            document.getElementById('modal').style.display = 'block'; // Show modal
+            document.getElementById('modal').style.display = 'block'; // Show the modal
             document.getElementById('modal').style.bottom = '30%'; // Animate to center
+            document.getElementById('modal').style.transform = 'translate(-50%, -50%)'; // Center more precisely
         }
 
         function closeModal() {
-            document.getElementById('modal').style.display = 'none'; // Hide modal
+            document.getElementById('modal').style.display = 'none'; // Hide the modal
         }
 
         function showJudgeModal() {
