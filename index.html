@@ -30,32 +30,9 @@
                 0 0 30px rgba(0, 0, 255, 0.7);
             margin-top: 20px; /* Space at the top */
         }
-        #button-container {
-            display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            align-items: center; /* Center buttons horizontally */
-            margin-top: 150px; /* Adjusted space to position buttons lower */
-            position: relative; /* Set relative positioning for the button container */
-            z-index: 1; /* Bring buttons above particles */
-        }
-        .button {
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            background-color: rgba(0, 0, 139, 0.6);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 10px; /* Space between buttons */
-            width: 200px; /* Fixed width for buttons */
-        }
-        .button:hover {
-            background-color: rgba(0, 0, 139, 0.8);
-        }
-        #modal {
+        #modal, #judge-modal, #angel-modal {
             display: none; /* Hidden by default */
-            position: fixed;
+            position: fixed; /* Fix the position for the modals */
             left: 50%; /* Center horizontally */
             transform: translate(-50%, 0); /* Center */
             width: 400px; /* Set a width for the modal */
@@ -76,70 +53,19 @@
                 bottom: 30%; /* Position in the center */
             }
         }
-        #judge-modal {
-            display: none; /* Hidden by default */
-            margin-top: 20px; /* Space above the sections */
-            position: fixed; /* Fix the position for the modals */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, 0); /* Center */
-            width: 400px; /* Set a width for the modal */
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-            border-radius: 10px; /* Rounded corners */
-            color: white; /* Text color */
-            padding: 20px; /* Padding inside modal */
-            text-align: center; /* Center text */
-            animation: slideIn 0.5s forwards; /* Animation */
-            z-index: 3; /* Bring modal above everything */
-            bottom: -300px; /* Start below the screen */
-        }
-        #angel-modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fix the position for the modals */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, 0); /* Center */
-            width: 400px; /* Set a width for the modal */
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-            border-radius: 10px; /* Rounded corners */
-            color: white; /* Text color */
-            padding: 20px; /* Padding inside modal */
-            text-align: center; /* Center text */
-            animation: slideIn 0.5s forwards; /* Animation */
-            z-index: 3; /* Bring modal above everything */
-            bottom: -300px; /* Start below the screen */
-        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
-    
-    <div id="button-container">
-        <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">What?</button>
-        <button class="button" onclick="showModal()">Scripts</button>
-    </div>
 
     <div id="modal">
         <div id="script-section">
-            <button class="button" onclick="showJudgeModal()">The True Judge</button> <!-- Button for The True Judge -->
-            <button class="button" onclick="showAngelModal()">The True Angel</button> <!-- Button for The True Angel -->
-        </div>
-        <button class="button" onclick="closeModal()">Go Back</button> <!-- Go Back Button -->
-    </div>
-
-    <div id="judge-modal">
-        <div>
             <h2>The True Judge</h2>
-            <p style="color: white; margin-top: 10px; text-align: center;">loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p> <!-- Adjusted loadstring positioning and color -->
-        </div>
-        <button class="button" onclick="closeJudgeModal()">Go Back</button> <!-- Go Back Button for Judge Modal -->
-    </div>
-
-    <div id="angel-modal">
-        <div>
+            <p style="color: white; margin-top: 10px; text-align: center;">loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()</p>
             <h2>The True Angel</h2>
-            <p style="color: white; margin-top: 10px; text-align: center;">W.I.P</p> <!-- Adjusted W.I.P positioning and color -->
+            <p style="color: white; margin-top: 10px; text-align: center;">W.I.P</p>
         </div>
-        <button class="button" onclick="closeAngelModal()">Go Back</button> <!-- Go Back Button for Angel Modal -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -215,31 +141,8 @@
             }
         });
 
-        function showModal() {
-            document.getElementById('modal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        function showJudgeModal() {
-            document.getElementById('judge-modal').style.display = 'block';
-            document.getElementById('modal').style.display = 'none'; // Close the main modal when opening Judge modal
-        }
-
-        function closeJudgeModal() {
-            document.getElementById('judge-modal').style.display = 'none';
-        }
-
-        function showAngelModal() {
-            document.getElementById('angel-modal').style.display = 'block';
-            document.getElementById('modal').style.display = 'none'; // Close the main modal when opening Angel modal
-        }
-
-        function closeAngelModal() {
-            document.getElementById('angel-modal').style.display = 'none';
-        }
+        // Show the modal directly on load
+        document.getElementById('modal').style.display = 'block';
     </script>
 </body>
 </html>
