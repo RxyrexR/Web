@@ -99,6 +99,21 @@
             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
             border-radius: 5px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Blue glow effect */
+            transition: background-color 0.3s; /* Transition for the background color */
+        }
+        .flash {
+            animation: flash 0.3s; /* Flash effect */
+        }
+        @keyframes flash {
+            0% {
+                background-color: rgba(0, 0, 139, 0.8);
+            }
+            50% {
+                background-color: rgba(255, 215, 0, 0.8); /* Gold color */
+            }
+            100% {
+                background-color: rgba(0, 0, 139, 0.8);
+            }
         }
     </style>
 </head>
@@ -113,7 +128,7 @@
 
     <div id="modal">
         <div class="section" id="true-angel">The True Angel</div>
-        <div class="section" id="true-judge" onclick="showScript()">The True Judge</div>
+        <div class="section" id="true-judge" onclick="showScript(this)">The True Judge</div>
         <button class="button" onclick="closeModal()">Go Back</button>
     </div>
 
@@ -242,8 +257,12 @@
             document.getElementById('modal').style.display = 'none'; // Hide modal
         }
 
-        function showScript() {
-            alert("Here is the script:\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source\"))()");
+        function showScript(element) {
+            element.classList.add('flash'); // Add flash effect
+            alert("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source\"))()");
+            setTimeout(() => {
+                element.classList.remove('flash'); // Remove flash effect after timeout
+            }, 300); // Match duration of flash effect
         }
     </script>
 </body>
