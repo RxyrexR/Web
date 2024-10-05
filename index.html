@@ -99,15 +99,13 @@
             color: #fff; /* White color for the script text */
             margin-bottom: 20px; /* Space below the script text */
         }
-        
-        /* New Styles for The True Judge Section */
+
+        /* New Styles for The True Judge Section in Modal */
         #true-judge {
-            position: absolute;
-            top: 10%; /* Adjust as needed */
-            left: 5%; /* Adjust as needed */
             color: #ffffff;
             font-size: 36px; /* Adjust font size as needed */
             text-align: left;
+            margin: 20px 0; /* Margin for spacing */
             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
             padding: 10px; /* Padding for the text */
             border-radius: 5px; /* Rounded corners */
@@ -130,9 +128,6 @@
     <div id="particles-js"></div>
     <div id="welcome-text">Welcome To RxyrexR Hideout</div>
 
-    <!-- The True Judge Section -->
-    <div id="true-judge">The True Judge</div>
-
     <div id="button-container">
         <button class="button" onclick="window.open('https://learnmore-ten.vercel.app/', '_blank')">What?</button>
         <button class="button" onclick="showModal()">Scripts</button>
@@ -140,6 +135,7 @@
 
     <div id="modal">
         <div id="modal-content">
+            <div id="true-judge">The True Judge</div> <!-- Added section here -->
             <div id="script-text">
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source"))()
             </div>
