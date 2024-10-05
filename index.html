@@ -28,11 +28,28 @@
       height: 100vh;
     }
 
-    /* Additional styling to make the text more visible */
+    /* Styling for text gradient */
     h1, p {
-      color: white;  /* Text color to make it stand out */
+      /* Text gradient from black to dark gray */
+      background: linear-gradient(90deg, black, darkgray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      /* Center the text */
       text-align: center;
-      padding-top: 20vh;  /* Move the text down vertically */
+
+      /* Add some padding at the top */
+      padding-top: 20vh;
+    }
+
+    /* Make the heading text larger */
+    h1 {
+      font-size: 4em;  /* You can adjust this size */
+    }
+
+    /* Make the paragraph text larger */
+    p {
+      font-size: 2em;  /* You can adjust this size */
     }
   </style>
 </head>
