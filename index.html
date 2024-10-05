@@ -270,12 +270,11 @@
 
         function showScript(element) {
             element.classList.add('flash'); // Add flash effect
-            alert("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/RxyrexR/MinosPrime/refs/heads/main/Source\"))()");
             setTimeout(() => {
                 element.classList.remove('flash'); // Remove flash effect after timeout
             }, 300); // Duration of flash effect
+            alert("Script: " + document.getElementById('script-text').innerText);
         }
     </script>
 </body>
 </html>
-
