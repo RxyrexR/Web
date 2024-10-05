@@ -29,23 +29,24 @@
         }
         #sub-text {
             position: absolute;
-            top: 22%; /* Positioned closer to the big text */
+            top: 20%; /* Positioned closer to the big text */
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px; /* Slightly larger font size */
+            font-size: 32px; /* Slightly larger font size */
             text-align: center;
-            background: linear-gradient(to right, #1e3c72, #2a69ac); /* Dark to light blue gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #1e3c72; /* Initial dark blue color */
             animation: shimmer 1.5s infinite alternate; /* Shimmer animation */
         }
 
         @keyframes shimmer {
             0% {
-                background: linear-gradient(to right, #1e3c72, #2a69ac);
+                color: #1e3c72; /* Dark blue */
+            }
+            50% {
+                color: #2a69ac; /* Light blue */
             }
             100% {
-                background: linear-gradient(to right, #2a69ac, #1e3c72);
+                color: #1e3c72; /* Dark blue */
             }
         }
     </style>
